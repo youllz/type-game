@@ -30,3 +30,6 @@ function setInputFocus() {
 }
 
 export const inputFocus = setInputFocus()
+
+
+ export const responsiveNav = writable<boolean>(false)

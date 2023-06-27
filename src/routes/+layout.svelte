@@ -13,7 +13,7 @@
 
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<main on:mousemove={() => {gameFocus.reset()}} on:click={() => {inputFocus.isFocus()}} class="w-full">
+<main on:mousemove={() => {gameFocus.reset()}} on:click={() => {inputFocus.isFocus()}} class="w-full relative">
 	
 	<slot />
 </main>

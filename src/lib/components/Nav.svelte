@@ -1,9 +1,10 @@
 <script>
-	import { gameFocus } from '$lib/store';
+	import { gameFocus, responsiveNav } from '$lib/store';
 	import { fade } from 'svelte/transition';
+	import Theme from './Theme.svelte';
 </script>
 
-<nav class="flex py-5 px-40 w-screen items-center justify-between ">
+<nav class="flex py-5 px-[5vw] w-screen items-center justify-between ">
 	<ul class="flex gap-3 items-center">
 		<li>
 			<a href="/" class="flex items-center">
@@ -24,7 +25,7 @@
 			</a>
 		</li>
 		{#if $gameFocus}
-			<li transition:fade>
+			<li class="Icon" transition:fade>
 					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
 						><path
 							fill="currentColor"
@@ -32,9 +33,9 @@
 						/></svg
 					>
 			</li>
-			<li transition:fade>
+			<li class="Icon" transition:fade>
 				<svg
-					class="hover:text-slate-50"
+					class="hover:secondary"
 					xmlns="http://www.w3.org/2000/svg"
 					width="22"
 					height="22"
@@ -45,9 +46,9 @@
 					/></svg
 				>
 			</li>
-			<li transition:fade>
+			<li class="Icon" transition:fade>
 				<svg
-					class="hover:text-slate-50"
+					class="hover:secondary"
 					xmlns="http://www.w3.org/2000/svg"
 					width="22"
 					height="22"
@@ -61,9 +62,9 @@
 					></svg
 				>
 			</li>
-			<li transition:fade>
+			<li class="Icon" transition:fade>
 					<svg
-						class="hover:text-slate-50"
+						class="hover:secondary"
 						xmlns="http://www.w3.org/2000/svg"
 						width="22"
 						height="22"
@@ -78,10 +79,10 @@
 	</ul>
 
 	{#if $gameFocus}
-		<ul class="flex gap-3 items-center" transition:fade>
-			<li>
+		<ul class="  flex gap-3 items-center" transition:fade>
+			<li class="Icon">
 				<svg
-					class="hover:text-slate-50"
+					class="hover:text-secondary"
 					xmlns="http://www.w3.org/2000/svg"
 					width="22"
 					height="22"
@@ -92,9 +93,9 @@
 					/></svg
 				>
 			</li>
-			<li>
+			<li class="Icon">
 				<svg
-					class="hover:text-slate-50"
+					class="hover:text-secondary"
 					xmlns="http://www.w3.org/2000/svg"
 					width="22"
 					height="22"
@@ -109,6 +110,31 @@
 					></svg
 				>
 			</li>
+			<li class="Btn">
+				<Theme/>
+			</li>
+			<li class="Btn">
+				<button class="hover:text-secondary" on:click={() => {$responsiveNav = !$responsiveNav}}>
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+				</button>
+			</li>
+			
 		</ul>
 	{/if}
 </nav>
+
+<style>
+	.Btn {
+		display: none;
+	}
+
+	@media (max-width: 750px) {
+		.Btn {
+			display: flex;
+		}
+
+		.Icon {
+			display: none;
+		}
+	}
+</style>

@@ -1,4 +1,4 @@
-<div>
+<div class="flex flex-wrap">
   <span 	class="hover:text-secondary flex gap-1 w-auto p-2 items-center justify-center text-xs cursor-pointer">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 2.4 24 24"><path fill="currentColor" d="M4 22.4q-.825 0-1.413-.587T2 20.4v-12q0-.825.588-1.413T4 6.4h16q.825 0 1.413.588T22 8.4v12q0 .825-.588 1.413T20 22.4H4Zm8-7l8-5v-2l-8 5l-8-5v2l8 5Z"/></svg>
     Contact

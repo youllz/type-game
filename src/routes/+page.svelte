@@ -3,10 +3,11 @@
 	import GameOver from '$lib/components/GameOver.svelte';
 	import Language from '$lib/components/Language.svelte';
 	import Theme from '$lib/components/Theme.svelte';
-	import { gameFocus, inputFocus } from '$lib/store';
+	import { gameFocus, inputFocus, responsiveNav } from '$lib/store';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import type { PageData } from './$types';
+	import ResponsiveNav from '$lib/components/ResponsiveNav.svelte';
 
 	export let data: PageData;
 
@@ -28,6 +29,7 @@
 	let typeLetter = '';
 	let correctLetters = 0;
 	let seconds = 30;
+	let windowWidth: number
 
 	let wordsEl: HTMLDivElement;
 	let letterEl: HTMLSpanElement;
@@ -236,7 +238,17 @@
 		// words = data.wordData.words;
 		// getWords(numWords)
 	}
+
+	// $: (console.log($responsiveNav))
 </script>
+
+
+<svelte:window bind:innerWidth={windowWidth} />
+
+{#if $responsiveNav}
+	
+<ResponsiveNav/>
+{/if}
 
 {#if game !== 'game over'}
 	<section
@@ -387,7 +399,7 @@
 				{/if}
 			</div>
 			<div
-				class="flex gap-2 flex-wrap  text-xl  relative overflow-hidden h-[calc(1em*4*1.42)] w-full select-none transition-all px-40"
+				class="  flex gap-2 flex-wrap  text-xl  relative overflow-hidden h-[calc(1em*4*1.42)] w-full select-none transition-all px-[2vw]"
 				bind:this={wordsEl}
 			>
 				{#each words as word}
@@ -444,8 +456,10 @@
 	
 		<!-- bottom -->
 		{#if $gameFocus}
-			<div transition:fade>
+			<div transition:fade class="w-full   ">
 				<!-- key tips -->
+				{#if windowWidth > 750}
+					
 				<div class="flex flex-col items-center justify-center">
 					<div>
 						<kbd class="kbd kbd-xs">tab</kbd>
@@ -466,13 +480,20 @@
 						<span class="text-xs"> &nbsp; - &nbsp; command line</span>
 					</div>
 				</div>
+				{/if}
 				<!-- leftright -->
-				<div class="flex items-center justify-between w-full mt-10 gap-40">
-					<div class="flex items-center gap-2">
+				<div  class:justify-center={windowWidth > 750} class="flex  items-center justify-between w-full mt-10 gap-40 ">
+					{#if windowWidth > 750}
+					<div class="flex flex-wrap items-center gap-2 ">
 						<FooterBtn />
 					</div>
+						
 					<!-- The button to open modal -->
-					<Theme />
+					<div>
+						
+						<Theme />
+						</div>
+						{/if}
 				</div>
 			</div>
 		{/if}
