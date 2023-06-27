@@ -29,7 +29,7 @@
 	let typeLetter = '';
 	let correctLetters = 0;
 	let seconds = 30;
-	let windowWidth: number
+	let windowWidth: number;
 
 	let wordsEl: HTMLDivElement;
 	let letterEl: HTMLSpanElement;
@@ -81,8 +81,7 @@
 
 	function starGame() {
 		setGameState('in progress');
-		if(gameMode === 'time') {
-
+		if (gameMode === 'time') {
 			setGameTimer();
 		}
 	}
@@ -110,7 +109,7 @@
 		const interval = setInterval(gameTimer, 1000);
 	}
 
-	$: if(wordIndex === words.length) {
+	$: if (wordIndex === words.length) {
 		setGameState('game over');
 	}
 
@@ -242,12 +241,10 @@
 	// $: (console.log($responsiveNav))
 </script>
 
-
 <svelte:window bind:innerWidth={windowWidth} />
 
 {#if $responsiveNav}
-	
-<ResponsiveNav/>
+	<ResponsiveNav />
 {/if}
 
 {#if game !== 'game over'}
@@ -375,9 +372,9 @@
 				</div>
 			</div>
 		{/if}
-	
+
 		<!-- main -->
-		<div class="w-full   flex flex-col items-center"  >
+		<div class="w-full   flex flex-col items-center">
 			{#if $gameFocus}
 				<div transition:fade>
 					<Language language={data.wordData.cookiesLanguage} />
@@ -453,57 +450,57 @@
 				</div>
 			</div>
 		</div>
-	
+
 		<!-- bottom -->
 		{#if $gameFocus}
 			<div transition:fade class="w-full   ">
 				<!-- key tips -->
 				{#if windowWidth > 750}
-					
-				<div class="flex flex-col items-center justify-center">
-					<div>
-						<kbd class="kbd kbd-xs">tab</kbd>
-						&nbsp; + &nbsp;
-						<kbd class="kbd kbd-xs">enter</kbd>
-	
-						<span class="text-xs"> &nbsp; - &nbsp; restart test</span>
+					<div class="flex flex-col items-center justify-center">
+						<div>
+							<kbd class="kbd kbd-xs">tab</kbd>
+							&nbsp; + &nbsp;
+							<kbd class="kbd kbd-xs">enter</kbd>
+
+							<span class="text-xs"> &nbsp; - &nbsp; restart test</span>
+						</div>
+						<div>
+							<kbd class="kbd kbd-xs">esc</kbd>
+							<span class="text-xs"> &nbsp; or &nbsp;</span>
+							<kbd class="kbd kbd-xs">ctrl</kbd>
+							+
+							<kbd class="kbd kbd-xs">shift</kbd>
+							+
+							<kbd class="kbd kbd-xs">p</kbd>
+
+							<span class="text-xs"> &nbsp; - &nbsp; command line</span>
+						</div>
 					</div>
-					<div>
-						<kbd class="kbd kbd-xs">esc</kbd>
-						<span class="text-xs"> &nbsp; or &nbsp;</span>
-						<kbd class="kbd kbd-xs">ctrl</kbd>
-						+
-						<kbd class="kbd kbd-xs">shift</kbd>
-						+
-						<kbd class="kbd kbd-xs">p</kbd>
-	
-						<span class="text-xs"> &nbsp; - &nbsp; command line</span>
-					</div>
-				</div>
 				{/if}
 				<!-- leftright -->
-				<div  class:justify-center={windowWidth > 750} class="flex  items-center justify-between w-full mt-10 gap-40 ">
+				<div
+					class:justify-center={windowWidth > 750}
+					class="flex  items-center justify-between w-full mt-10 gap-40 "
+				>
 					{#if windowWidth > 750}
-					<div class="flex flex-wrap items-center gap-2 ">
-						<FooterBtn />
-					</div>
-						
-					<!-- The button to open modal -->
-					<div>
-						
-						<Theme />
+						<div class="flex flex-wrap items-center gap-2 ">
+							<FooterBtn />
 						</div>
-						{/if}
+
+						<!-- The button to open modal -->
+						<div>
+							<Theme />
+						</div>
+					{/if}
 				</div>
 			</div>
 		{/if}
 	</section>
-	
 {/if}
 
 {#if game === 'game over'}
 	<div class="h-[30rem] w-full flex flex-col gap-5 ">
-		<GameOver {words} {correctLetters} {seconds} {wordIndex}/>
+		<GameOver {words} {correctLetters} {seconds} {wordIndex} />
 		<div class="tooltip tooltip-bottom" data-tip="Restart Test">
 			<button class="" on:click|stopPropagation|stopPropagation={resetEndGame}>
 				<span>
@@ -524,6 +521,7 @@
 		</div>
 	</div>
 {/if}
+
 <style lang="scss">
 	.letter {
 		opacity: 0.4;
@@ -566,7 +564,6 @@
 		-webkit-backdrop-filter: blur(10px);
 		backdrop-filter: blur(5px);
 	}
-
 
 	.center {
 		justify-content: center !important;

@@ -1,9 +1,8 @@
-import type { RequestHandler } from "./$types";
-import { json } from "@sveltejs/kit";
+import type { RequestHandler } from './$types';
+import { json } from '@sveltejs/kit';
 
-import allWords from '../languages/words.json'
+import allWords from '../languages/words.json';
 
 export const GET: RequestHandler = async () => {
-  
-  return json(allWords)
+	return json(allWords);
 };

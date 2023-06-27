@@ -1,35 +1,27 @@
 import { writable, type Writable } from 'svelte/store';
 
-
-
-
-
-
 function setGameFocus() {
-  const {subscribe,  set} = writable(true)
+	const { subscribe, set } = writable(true);
 
-  return {
-    subscribe,
-    toggleFocus: () => set(false),
-    reset: () => set(true)
-  }
+	return {
+		subscribe,
+		toggleFocus: () => set(false),
+		reset: () => set(true)
+	};
 }
 
-export const gameFocus = setGameFocus()
-
+export const gameFocus = setGameFocus();
 
 function setInputFocus() {
-  const {subscribe, set} = writable(true)
+	const { subscribe, set } = writable(true);
 
-  return {
-    subscribe,
-    isFocus: () => set(false),
-    reset: () => set(true)
-
-  }
+	return {
+		subscribe,
+		isFocus: () => set(false),
+		reset: () => set(true)
+	};
 }
 
-export const inputFocus = setInputFocus()
+export const inputFocus = setInputFocus();
 
-
- export const responsiveNav = writable<boolean>(false)
+export const responsiveNav = writable<boolean>(false);

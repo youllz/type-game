@@ -26,12 +26,12 @@
 		</li>
 		{#if $gameFocus}
 			<li class="Icon" transition:fade>
-					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
-						><path
-							fill="currentColor"
-							d="M3 17h18v2H3v-2zm0-6h3v3H3v-3zm5 0h3v3H8v-3zM3 5h3v3H3V5zm10 0h3v3h-3V5zm5 0h3v3h-3V5zm-5 6h3v3h-3v-3zm5 0h3v3h-3v-3zM8 5h3v3H8V5z"
-						/></svg
-					>
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+					><path
+						fill="currentColor"
+						d="M3 17h18v2H3v-2zm0-6h3v3H3v-3zm5 0h3v3H8v-3zM3 5h3v3H3V5zm10 0h3v3h-3V5zm5 0h3v3h-3V5zm-5 6h3v3h-3v-3zm5 0h3v3h-3v-3zM8 5h3v3H8V5z"
+					/></svg
+				>
 			</li>
 			<li class="Icon" transition:fade>
 				<svg
@@ -63,17 +63,17 @@
 				>
 			</li>
 			<li class="Icon" transition:fade>
-					<svg
-						class="hover:secondary"
-						xmlns="http://www.w3.org/2000/svg"
-						width="22"
-						height="22"
-						viewBox="0 2.4 24 24"
-						><path
-							fill="currentColor"
-							d="m9.25 24.4l-.4-3.2q-.325-.125-.613-.3t-.562-.375L4.7 21.775l-2.75-4.75l2.575-1.95Q4.5 14.9 4.5 14.738v-.675q0-.163.025-.338l-2.575-1.95l2.75-4.75l2.975 1.25q.275-.2.575-.375t.6-.3l.4-3.2h5.5l.4 3.2q.325.125.613.3t.562.375l2.975-1.25l2.75 4.75l-2.575 1.95q.025.175.025.338v.675q0 .162-.05.337l2.575 1.95l-2.75 4.75l-2.95-1.25q-.275.2-.575.375t-.6.3l-.4 3.2h-5.5Zm2.8-6.5q1.45 0 2.475-1.025T15.55 14.4q0-1.45-1.025-2.475T12.05 10.9q-1.475 0-2.488 1.025T8.55 14.4q0 1.45 1.012 2.475T12.05 17.9Z"
-						/></svg
-					>
+				<svg
+					class="hover:secondary"
+					xmlns="http://www.w3.org/2000/svg"
+					width="22"
+					height="22"
+					viewBox="0 2.4 24 24"
+					><path
+						fill="currentColor"
+						d="m9.25 24.4l-.4-3.2q-.325-.125-.613-.3t-.562-.375L4.7 21.775l-2.75-4.75l2.575-1.95Q4.5 14.9 4.5 14.738v-.675q0-.163.025-.338l-2.575-1.95l2.75-4.75l2.975 1.25q.275-.2.575-.375t.6-.3l.4-3.2h5.5l.4 3.2q.325.125.613.3t.562.375l2.975-1.25l2.75 4.75l-2.575 1.95q.025.175.025.338v.675q0 .162-.05.337l2.575 1.95l-2.75 4.75l-2.95-1.25q-.275.2-.575.375t-.6.3l-.4 3.2h-5.5Zm2.8-6.5q1.45 0 2.475-1.025T15.55 14.4q0-1.45-1.025-2.475T12.05 10.9q-1.475 0-2.488 1.025T8.55 14.4q0 1.45 1.012 2.475T12.05 17.9Z"
+					/></svg
+				>
 			</li>
 		{/if}
 	</ul>
@@ -111,14 +111,20 @@
 				>
 			</li>
 			<li class="Btn">
-				<Theme/>
+				<Theme />
 			</li>
 			<li class="Btn">
-				<button class="hover:text-secondary" on:click={() => {$responsiveNav = !$responsiveNav}}>
-					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+				<button
+					class="hover:text-secondary"
+					on:click={() => {
+						$responsiveNav = !$responsiveNav;
+					}}
+				>
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
+						><path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg
+					>
 				</button>
 			</li>
-			
 		</ul>
 	{/if}
 </nav>
