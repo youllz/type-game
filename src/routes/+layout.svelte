@@ -22,7 +22,7 @@
 	on:click={() => {
 		inputFocus.isFocus();
 	}}
-	class="w-full relative"
+	class="w-full relative overflow-hidden pt-[100px]"
 >
 	<slot />
 </main>

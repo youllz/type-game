@@ -1,4 +1,4 @@
-<nav class="h-[100dvh] w-[100dvw] flex flex-col items-center justify-around z-40 bg-base-300 fixed">
+<nav class="h-[100dvh] w-[100dvw]  flex flex-col items-center justify-around z-40 bg-base-300 fixed">
 	<ul class="flex gap-3 items-center">
 		<li>
 			<svg

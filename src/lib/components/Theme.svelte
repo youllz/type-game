@@ -55,7 +55,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<label for="my-modal-5" class=" cursor-pointer my-10 flex gap-2 items-center">
+<label for="my-modal-5" class=" relative z-40 cursor-pointer my-10 flex gap-2 items-center">
 	<span>
 		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
 			><path
@@ -64,7 +64,7 @@
 			/></svg
 		>
 	</span>
-	<span>{themeName ?? ''}</span>
+	<span>{themeName ?? 'Theme'}</span>
 </label>
 
 <!-- Put this part before </body> tag -->

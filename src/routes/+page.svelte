@@ -74,7 +74,7 @@
 
 	let fetchWord;
 	async function getWords() {
-		const response = await fetch(`/api/words/${data.wordData.cookiesLanguage}`);
+		const response = await fetch(`/api/words/${data.wordData.cookiesLanguage ?? 'english'}`);
 		fetchWord = await response.json();
 		words = fetchWord.slice(0, numWords).sort(() => 0.5 - Math.random());
 	}
@@ -249,7 +249,7 @@
 
 {#if game !== 'game over'}
 	<section
-		class="w-screen relative  flex flex-col justify-between items-center h-[calc(100vh-6rem)] "
+		class=" relative  flex flex-col justify-around items-center h-[calc(100vh-6rem)] "
 		class:center={!$gameFocus}
 		data-game={game}
 	>
@@ -374,7 +374,7 @@
 		{/if}
 
 		<!-- main -->
-		<div class="w-full   flex flex-col items-center">
+		<div class="w-full   flex flex-col items-center relative overflow-x-clip">
 			{#if $gameFocus}
 				<div transition:fade>
 					<Language language={data.wordData.cookiesLanguage} />
@@ -416,7 +416,7 @@
 						inputFocus.reset();
 						inputEl.focus();
 					}}
-					class="cblur cursor-pointer flex items-center justify-center gap-2 w-full h-[11rem] absolute top-1/4"
+					class="cblur cursor-pointer flex items-center justify-center gap-2 w-full h-full absolute z-30"
 				>
 					<span>
 						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512"
@@ -452,49 +452,6 @@
 		</div>
 
 		<!-- bottom -->
-		{#if $gameFocus}
-			<div transition:fade class="w-full   ">
-				<!-- key tips -->
-				{#if windowWidth > 750}
-					<div class="flex flex-col items-center justify-center">
-						<div>
-							<kbd class="kbd kbd-xs">tab</kbd>
-							&nbsp; + &nbsp;
-							<kbd class="kbd kbd-xs">enter</kbd>
-
-							<span class="text-xs"> &nbsp; - &nbsp; restart test</span>
-						</div>
-						<div>
-							<kbd class="kbd kbd-xs">esc</kbd>
-							<span class="text-xs"> &nbsp; or &nbsp;</span>
-							<kbd class="kbd kbd-xs">ctrl</kbd>
-							+
-							<kbd class="kbd kbd-xs">shift</kbd>
-							+
-							<kbd class="kbd kbd-xs">p</kbd>
-
-							<span class="text-xs"> &nbsp; - &nbsp; command line</span>
-						</div>
-					</div>
-				{/if}
-				<!-- leftright -->
-				<div
-					class:justify-center={windowWidth > 750}
-					class="flex  items-center justify-between w-full mt-10 gap-40 "
-				>
-					{#if windowWidth > 750}
-						<div class="flex flex-wrap items-center gap-2 ">
-							<FooterBtn />
-						</div>
-
-						<!-- The button to open modal -->
-						<div>
-							<Theme />
-						</div>
-					{/if}
-				</div>
-			</div>
-		{/if}
 	</section>
 {/if}
 
